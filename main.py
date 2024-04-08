@@ -39,6 +39,8 @@ async def download_and_index_pdf(url: str = Body(..., embed=True), name: str = B
         
         return {"message": "PDF downloaded and trained to model successfully"}
     except Exception as e:
+        print("1-----------------------")
+        print(e)
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -51,4 +53,6 @@ async def query_documents(query: str = Query(..., title="Query", description="Th
         # pprint_response(response, show_source=True)
         return response
     except Exception as e:
+        print("-----------------------")
+        print(e)
         raise HTTPException(status_code=500, detail=str(e))
